@@ -1,4 +1,4 @@
-Personalized Federated Learning for Intelligent IoT Applications: A Cloud-Edge Based Framework
+《Personalized Federated Learning for Intelligent IoT Applications: A Cloud-Edge Based Framework》from IEEE Open Journal of the Computer Society
 
 
 一、IoT主要问题：
@@ -20,23 +20,41 @@ Personalized Federated Learning for Intelligent IoT Applications: A Cloud-Edge B
 1、the collaborative learning process in PerFit
 three stages:
 (1)offloading stage
-如果edge可信，终端设备将整个学习模型和数据样本传到edge进行计算；否则，将模型分割，保证输入层和数据样本留在本地，其他部分上传到边缘。2
+如果edge可信，终端设备将整个学习模型和数据样本传到edge进行计算；否则，将模型分割，保证输入层和数据样本留在本地，其他部分上传到边缘。
 (2)Learning stage
 设备和边缘基于个人数据样本合作计算本地模型，将模型传到cloud server，cloud server进行整合，将新的模型发给edge。如此迭代。
 （3）Personalization stage
+这部分由device自己完成。
 
 2、在edge server进行深层聚合，可以减少通信量
 
 
+三、Personalized federated learning mechanisms
+1、federated transfer learning
+将模型信息从一个域传递到另一个域。联邦学习中的域不同但是具有相关性。federated transfer learning将globle model分布到终端设备，进一步将模型个性化，
+以此减少non-iid数据造成的分布异同。考虑到通信代进行价和深度学习网络架构，主要有两种方法进行transfer来实现个性化。
+（1）Chen et al.[17]在本地用globle model和local data进行personalize，只有一些层中的模型参数被很好的转换。一些低层的模型参数可以从globle model中转换并直接使用，
+作为低层参数进行学习常见和低层次的特征。而高层的模型参数应该用本地数据进行微调，这样可以学习到更多细粒度的特征，来适应当前的device。
+Feng et al.[18]为本地模型的高层设计了两个personal adaptors，一个personal bias，一个persenal filter，可以用来微调persenal information。
+（2） Arivazhagan et al.[19]提出 FedPer,将深度学习模型看做base和personalization层的结合，Base层是用于FedAvg训练的共享层，personalization层用于本地训练，捕捉本地数据的个性化特征。
+这样将全局共享的base层和本地的personalization层进行结合。在某种程度上，可解决统计数据不同的问题。FedPer仅需要上传和聚合模型的一部分，所以可以减少通讯量和计算量。
+由于计算量的限制，模型修剪和压缩技术可以帮助轻量级开发。
 
+2、Federated meta learning
+meta learning的个性化能力可以用来提高FedAvg算法。
 
-
+思考：
+在个性化的时候还是用自己的数据在本地进行训练，依旧是用自己的资源进行计算呗，所以计算任务怎么交给了cloud-edge？
 
 
 短语：
 boil down 归结于
 devise 设计
+leverage 利用
 carft the model 建立模型
 tackle the challenge 解决问题
 in a holistic manner 在整体上
 fulfill the requirement 满足要求
+be fine-tuned 微调
+fine grained 细粒度的
+view sth as 将……视为
