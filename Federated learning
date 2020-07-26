@@ -17,7 +17,7 @@ Personalized Federated Learning for Intelligent IoT Applications: A Cloud-Edge B
 应用接近IoT设备的边缘计算，设备可以选择通过无线连接将计算量分给边缘计算，可以满足高处理速度和低延迟的要求。
 终端设备，edge server，remote cloud被联邦学习所连接，一起训练globle model。
 
-the collaborative learning process in PerFit
+1、the collaborative learning process in PerFit
 three stages:
 (1)offloading stage
 如果edge可信，终端设备将整个学习模型和数据样本传到edge进行计算；否则，将模型分割，保证输入层和数据样本留在本地，其他部分上传到边缘。2
@@ -25,6 +25,7 @@ three stages:
 设备和边缘基于个人数据样本合作计算本地模型，将模型传到cloud server，cloud server进行整合，将新的模型发给edge。如此迭代。
 （3）Personalization stage
 
+2、在edge server进行深层聚合，可以减少通信量
 
 
 
