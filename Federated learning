@@ -1,2 +1,8 @@
-titleL:Personalized Federated Learning for Intelligent IoT Applications: A Cloud-Edge Based Framework
-content:
+Personalized Federated Learning for Intelligent IoT Applications: A Cloud-Edge Based Framework
+
+
+主要问题：
+1、设备不同
+不同终端设备硬件不同，计算、存储、通信能力不同。IoT设备①总是离线断线无法连接或②慢速高成本的通信。同步情况下，③整体速度取决于最慢的设备。
+2、统计不同
+非独立同分布数据，如特征分布倾斜，标签分布倾斜和concept shift。
