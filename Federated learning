@@ -1,8 +1,41 @@
 Personalized Federated Learning for Intelligent IoT Applications: A Cloud-Edge Based Framework
 
 
-主要问题：
+一、IoT主要问题：
+
 1、设备不同
 不同终端设备硬件不同，计算、存储、通信能力不同。IoT设备①总是离线断线无法连接或②慢速高成本的通信。同步情况下，③整体速度取决于最慢的设备。
 2、统计不同
-非独立同分布数据，如特征分布倾斜，标签分布倾斜和concept shift。
+非独立同分布数据，如特征分布倾斜，标签分布倾斜和concept shift。  由此提出联邦平均（FederatedAverage，FedAvg），但是①当数据倾斜严重时，
+会导致联邦学习进程和传统中心聚合学习时的weight divergence，影响模型性能。②FedAvg只学习终端设备的粗略特征，并不会学习特殊设备上的细粒度特征。
+3、模型不同
+本地模型都会适应自己的环境和资源数据，不想分享自己的模型细节以保护隐私，所以提交的模型都结构有很大同，通过传统联邦学习无法直接聚合。所以要使
+一个深度网络在不知道内部数据细节的情况下，理解其他深度网络。
+
+二、个性化联邦学习中的Cloud-edge框架
+
+应用接近IoT设备的边缘计算，设备可以选择通过无线连接将计算量分给边缘计算，可以满足高处理速度和低延迟的要求。
+终端设备，edge server，remote cloud被联邦学习所连接，一起训练globle model。
+
+the collaborative learning process in PerFit
+three stages:
+(1)offloading stage
+如果edge可信，终端设备将整个学习模型和数据样本传到edge进行计算；否则，将模型分割，保证输入层和数据样本留在本地，其他部分上传到边缘。2
+(2)Learning stage
+设备和边缘基于个人数据样本合作计算本地模型，将模型传到cloud server，cloud server进行整合，将新的模型发给edge。如此迭代。
+（3）Personalization stage
+
+
+
+
+
+
+
+
+短语：
+boil down 归结于
+devise 设计
+carft the model 建立模型
+tackle the challenge 解决问题
+in a holistic manner 在整体上
+fulfill the requirement 满足要求
